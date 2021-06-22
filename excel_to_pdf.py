@@ -33,7 +33,7 @@ def ExcelPrintPdf(abs_wb_path, pdf_name, ):
     wb_path = str(abs_wb_path)
     path_to_pdf = str(p.cwd().joinpath('PDFS',pdf_name))
 
-    print('path_to_pdf :',path_to_pdf)
+    #print('path_to_pdf :',path_to_pdf)
     wb = o.Workbooks.Open(wb_path)
 
     ws_index_list = [0]  # say you want to print these sheets Starts from 1

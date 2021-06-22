@@ -42,23 +42,28 @@ c_num = project_inputs.file_cheque_number
 
 counter = 0
 for key, value_ in information.items():
-    print(information[key], len(information[key]))
+    #print(information[key], len(information[key]))
     ws[payee] = (information[key][0])  # Name of emplyee
+    print((information[key][0]))     # Name of emplyee
     if information[key][2] is not None:
         ws[value] = (information[key][2])  # fortnight pay
+        print(f'Fortnight Pay {month} 2021: ${information[key][2]:,.2f}')  # fortnight pay
         ws[description] = f"2nd Fortnight Pay for Month the of {month} 2021"  # Description
-        print('is integer')
+        #print('is integer')
     else:
         # print(type(information[key][1])) # Full Salary
         ws[value] = (information[key][1])  # Full Salary
+        print(f'Full Salary {month} 2021: ${information[key][1]:,.2f}')  # Full Salary
         ws[description] = f"Pay for Month the of {month} 2021"  # Description
-        print(" No Fortnight pay")
+        #print ( f"Pay for Month the of {month} 2021"  )# Description
+        #print(" No Fortnight pay")
         pass
     ws[amount] = '---'
     ws[date] = information[key][3]
 
     ws[voucher_No] = v_num + counter
     ws[cheque_No] = c_num + counter
+    print("Cheque Number :", c_num + counter)
     counter += 1
 
     try:
@@ -74,8 +79,9 @@ for key, value_ in information.items():
                   f'Ideal Bakery Payment Voucher {v_num + counter}-{last_bs_day} {month.capitalize()} {theYear}', )
 
     print('document converted \n ')
-    time.sleep(1)
-
+    #time.sleep(.5)
+print("Vouchers Read ")
+time.sleep(30)
 #testing = information["Carl Smith"][3]
 # print(testing, type(testing))
 # st_date = testing.strtime("%d %B %Y")
